@@ -100,7 +100,7 @@ MONGODB_URI=mongodb://mongo:27017/nexrule
 ```
 
 ## Combine Rules
-## POST        /api/combineRules
+ ## POST  /api/combineRules
 
 **Description:**  
 Combines multiple rules into a single Abstract Syntax Tree (AST) using logical operators.
@@ -155,6 +155,62 @@ Evaluates a rule AST against user data.
 }
 
 ```
+
+## Error Handling
+
+When using the NexRule API, you may encounter various errors. Below are some common errors and their meanings:
+
+### 400 Bad Request
+**Description:** The request could not be understood by the server due to malformed syntax.  
+**Example:** 
+```json
+{
+  "error": "Rule string is required."
+}
+```
+Possible Causes:
+### 1. Missing required fields in the request body.
+### 2. Incorrectly formatted rules.
+
+## 404 Not Found
+**Description:** The requested resource could not be found on the server.
+Example:
+```json
+{
+  "error": "Resource not found."
+}
+
+```
+Possible Causes:
+### 1. Missing required fields in the request body.
+### 2. Incorrectly formatted rules.
+
+## 500 Internal Server Error
+**Description:** The server encountered an unexpected condition that prevented it from fulfilling the request.
+Example:
+```json
+{
+  "error": "An unexpected error occurred."
+}
+```
+Possible Causes:
+### 1. Issues with the server code.
+### 2. Database connection errors.
+
+
+## 401 Unauthorized
+**Description:** The request requires user authentication.
+Example:
+```json
+{
+  "error": "Authentication required."
+}
+
+```
+Possible Causes: Missing or invalid authentication token in the request headers.
+
+
+
 ## Project Structure
 ```bash
 NexRule/
@@ -188,3 +244,89 @@ NexRule/
 └── node_modules                # Directory where project dependencies are installed (ignored by Git)
 
 
+```
+
+
+## Usage Examples
+
+Once the NexRule application is running, you can interact with the API using tools like Postman or cURL. Here are some practical examples of how to use the application:
+
+### 1. Create a Rule
+**Endpoint:** `POST /api/rule`  
+**Description:** Create a new rule and receive its Abstract Syntax Tree (AST).
+
+**Request:**
+```bash
+curl -X POST http://localhost:3000/api/rule \
+-H "Content-Type: application/json" \
+-d '{"rule": "age > 18 AND status == \"active\""}'
+```
+
+### Response:
+```json
+{
+  "ast": { /* AST representation of the rule */ }
+}
+```
+
+
+
+
+
+
+
+
+
+### 2. Combine Rules
+**Endpoint:** `POST /api/combineRules`  
+**Description:** Combine multiple rules into a single Abstract Syntax Tree (AST).
+
+**Request:**
+```bash
+curl -X POST http://localhost:3000/api/combineRules \
+-H "Content-Type: application/json" \
+-d '{"rules": ["age > 30", "salary < 50000"]}'
+
+```
+
+### Response:
+```json
+{
+  "combinedAST": { /* Combined AST */ }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+### 3. Evaluate a Rule
+**Endpoint:** `POST /api/evaluateRule`  
+**Description:**  Evaluate a rule AST against user data.
+
+**Request:**
+```bash
+curl -X POST http://localhost:3000/api/evaluateRule \
+-H "Content-Type: application/json" \
+-d '{
+  "ast": { /* AST representation */ },
+  "userData": {
+    "age": 35,
+    "salary": 45000
+  }
+}'
+```
+
+### Response:
+```json
+{
+  "result": true
+}
+```
