@@ -34,6 +34,66 @@ NexRule is a rule evaluation engine that allows users to create, combine, and ev
 ### 4. Docker
 - Containerization tool for easy deployment, ensuring consistency across different environments and simplifying application management.
 
+## Design Choices
+
+### Technology Stack
+
+**Node.js and Express**: 
+- **Reasoning**: Node.js provides a non-blocking architecture, ideal for handling multiple concurrent requests, which is essential for a rule evaluation engine. Express simplifies API development and routing, enabling quick and efficient handling of HTTP requests.
+
+**MongoDB**: 
+- **Reasoning**: As a NoSQL database, MongoDB offers flexibility in storing rule definitions and user data. Its document-oriented structure aligns well with the dynamic nature of the rule evaluation system, allowing for easy modification and retrieval of rules.
+
+**Docker**: 
+- **Reasoning**: Docker ensures a consistent development environment across different machines. It simplifies deployment by encapsulating the application and its dependencies within containers, making it easy to scale and manage.
+
+### Architecture
+
+**Modular Structure**: 
+- **Design Choice**: The application is structured into separate modules for configuration, controllers, models, and routes. This separation of concerns enhances maintainability and allows for easier testing and debugging.
+
+**Abstract Syntax Tree (AST)**: 
+- **Design Choice**: Leveraging an AST for rule definitions enables flexible parsing and evaluation of complex rules. This design allows for dynamic rule creation and modifications without requiring changes to the underlying evaluation logic.
+
+### Rule Evaluation Logic
+
+**Dynamic Rule Creation**: 
+- **Design Choice**: Users can define rules in a string format, such as `"age > 18"` or `"status == 'active'"`. This approach makes the system intuitive and user-friendly, enabling non-technical users to interact with the rule engine.
+
+**Combining Rules**: 
+- **Design Choice**: The ability to combine rules using logical operators (AND, OR) allows for complex evaluations, such as `"age > 18 AND status == 'active'"`. This enhances the system's flexibility and power, enabling more sophisticated data evaluations.
+
+
+  ## Dependencies to Download
+
+### Backend Dependencies
+- **express**: Web framework for building APIs and handling routing.
+- **mongoose**: ODM (Object Data Modeling) library for MongoDB and Node.js, used for interacting with the MongoDB database.
+- **dotenv**: Loads environment variables from a `.env` file into `process.env`, allowing you to manage sensitive information like API keys.
+- **body-parser**: Middleware to parse incoming request bodies in a middleware before your handlers, available under the `req.body` property.
+- **jsonwebtoken**: Library to work with JSON Web Tokens for authentication (if needed).
+- **ws**: WebSocket library for real-time communication (if applicable).
+
+### Development Dependencies
+- **jest**: A delightful JavaScript testing framework with a focus on simplicity, used for writing and running unit tests.
+- **nodemon**: A utility that automatically restarts the Node.js server when file changes are detected during development.
+- **supertest**: A library for testing HTTP requests in Node.js applications, useful for writing tests for your Express routes.
+
+### Installing Dependencies
+Run the following command in the project root to install all dependencies:
+```bash
+npm install
+```
+
+
+
+### Testing Strategy
+
+**Unit Testing with Jest**: 
+- **Design Choice**: Implementing unit tests using Jest ensures that individual components of the application function correctly. This choice helps catch bugs early in the development process and supports code reliability.
+
+---
+
 
 
 ## Installation
