@@ -1,4 +1,4 @@
-# NexRule Project Documentation
+# NexRule: AST-based dynamic rule evaluation engine
 
 ## Introduction:
 NexRule is a rule evaluation engine that allows users to create, combine, and evaluate rules against user data. It uses an Abstract Syntax Tree (AST) to parse and evaluate rules dynamically.
