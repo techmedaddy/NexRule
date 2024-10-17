@@ -3,6 +3,13 @@
 ## Introduction:
 NexRule is a rule evaluation engine that allows users to create, combine, and evaluate rules against user data. It uses an Abstract Syntax Tree (AST) to parse and evaluate rules dynamically.
 
+![WhatsApp Image 2024-10-17 at 22 01 42_9b531910](https://github.com/user-attachments/assets/e51cc340-9d2d-4479-a265-083320681a56)
+
+
+
+
+
+
 ## Features
 
 ### 1. Rule Creation
