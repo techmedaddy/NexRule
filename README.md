@@ -249,7 +249,7 @@ NexRule/
 
 ## Usage Examples
 
-Once the NexRule application is running, you can interact with the API using tools like Postman or cURL. Here are some practical examples of how to use the application:
+Once the NexRule application is running, you can interact with the API using tools like Postman or CURL. Here are some practical examples of how to use the application:
 
 ### 1. Create a Rule
 **Endpoint:** `POST /api/rule`  
