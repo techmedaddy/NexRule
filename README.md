@@ -6,6 +6,9 @@ NexRule is a rule evaluation engine that allows users to create, combine, and ev
 ![WhatsApp Image 2024-10-17 at 22 01 42_9b531910](https://github.com/user-attachments/assets/e51cc340-9d2d-4479-a265-083320681a56)
 
 
+## 🛠️🖥️ System Design 
+
+![WhatsApp Image 2025-04-01 at 14 27 20_65e9d9e8](https://github.com/user-attachments/assets/4abbbb77-ed16-48ee-9a3c-d5a8b649139a)
 
 
 
